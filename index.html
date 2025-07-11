@@ -722,7 +722,64 @@
             document.body.style.background = `linear-gradient(${gradientAngle}deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)`;
         }, 100);
 
-        // Add click animation to buttons
+        // Add image hover effects and creative interactions
+        document.querySelectorAll('.project-image').forEach((image, index) => {
+            image.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.08) rotateY(5deg)';
+                this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            
+            image.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotateY(0deg)';
+            });
+
+            // Add click effect for images
+            image.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95) rotateY(0deg)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.02) rotateY(0deg)';
+                }, 150);
+            });
+        });
+
+        // Enhanced scroll-triggered animations for images
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const image = entry.target;
+                    image.style.animation = 'imageReveal 1s ease-out forwards';
+                    
+                    // Add staggered animation delay
+                    const delay = Array.from(document.querySelectorAll('.project-image')).indexOf(image) * 200;
+                    image.style.animationDelay = `${delay}ms`;
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        document.querySelectorAll('.project-image').forEach(image => {
+            imageObserver.observe(image);
+        });
+
+        // Add new keyframe animation
+        const imageAnimationStyle = document.createElement('style');
+        imageAnimationStyle.textContent = `
+            @keyframes imageReveal {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px) rotateX(15deg) scale(0.8);
+                    filter: blur(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) rotateX(0deg) scale(1);
+                    filter: blur(0px);
+                }
+            }
+        `;
+        document.head.appendChild(imageAnimationStyle);
         document.querySelectorAll('.cta-button, .project-link').forEach(button => {
             button.addEventListener('click', function(e) {
                 // Create ripple effect
