@@ -233,6 +233,26 @@
             color: white;
             position: relative;
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Specific background images for each project */
+        .elite-sources .project-image {
+            background-image: linear-gradient(rgba(139, 69, 198, 0.7), rgba(74, 144, 226, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><rect width="400" height="250" fill="%23333"/><text x="200" y="125" text-anchor="middle" dy="0.35em" fill="white" font-family="Arial" font-size="20" font-weight="bold">Elite Home Sources 1-7</text></svg>');
+        }
+
+        .josh-wiley .project-image {
+            background-image: linear-gradient(rgba(139, 69, 198, 0.7), rgba(74, 144, 226, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><rect width="400" height="250" fill="%23444"/><text x="200" y="125" text-anchor="middle" dy="0.35em" fill="white" font-family="Arial" font-size="20" font-weight="bold">Josh Wiley Tattoo 1-2</text></svg>');
+        }
+
+        .joe-dills .project-image {
+            background-image: linear-gradient(rgba(139, 69, 198, 0.7), rgba(74, 144, 226, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><rect width="400" height="250" fill="%23555"/><text x="200" y="125" text-anchor="middle" dy="0.35em" fill="white" font-family="Arial" font-size="20" font-weight="bold">Joe Dills Campaign</text></svg>');
+        }
+
+        .primedtf .project-image {
+            background-image: linear-gradient(rgba(139, 69, 198, 0.7), rgba(74, 144, 226, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><rect width="400" height="250" fill="%23666"/><text x="200" y="125" text-anchor="middle" dy="0.35em" fill="white" font-family="Arial" font-size="20" font-weight="bold">PrimeDTF.com</text></svg>');
         }
 
         .project-image::after {
@@ -284,6 +304,8 @@
         .project-links {
             display: flex;
             gap: 1rem;
+            position: relative;
+            z-index: 10;
         }
 
         .project-link {
@@ -295,6 +317,10 @@
             font-weight: 600;
             transition: all 0.3s ease;
             font-size: 0.9rem;
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+            cursor: pointer;
         }
 
         .project-link:hover {
@@ -439,8 +465,8 @@
         
         <div class="portfolio-grid">
             <!-- Elite Home Sources -->
-            <div class="project-card">
-                <div class="project-image">Elite Home Sources 1-7</div>
+            <div class="project-card elite-sources">
+                <div class="project-image"></div>
                 <h3 class="project-title">Elite Home Sources — Custom Booking Platform & Business App Integration</h3>
                 <div class="project-tags">
                     <span class="tag">Full Stack</span>
@@ -472,8 +498,8 @@
             </div>
 
             <!-- Josh Wiley Tattoo -->
-            <div class="project-card">
-                <div class="project-image">Josh Wiley Tattoo 1-2</div>
+            <div class="project-card josh-wiley">
+                <div class="project-image"></div>
                 <h3 class="project-title">Josh Wiley Tattoos — Portfolio Website</h3>
                 <div class="project-tags">
                     <span class="tag">Web Design</span>
@@ -491,8 +517,8 @@
             </div>
 
             <!-- Joe Dills Campaign -->
-            <div class="project-card">
-                <div class="project-image">Joe Dills Campaign</div>
+            <div class="project-card joe-dills">
+                <div class="project-image"></div>
                 <h3 class="project-title">Joe Dills Campaign — Political Website with AI Chatbot</h3>
                 <div class="project-tags">
                     <span class="tag">React</span>
@@ -522,8 +548,8 @@
             </div>
 
             <!-- PrimeDTF -->
-            <div class="project-card">
-                <div class="project-image">PrimeDTF.com</div>
+            <div class="project-card primedtf">
+                <div class="project-image"></div>
                 <h3 class="project-title">PrimeDTF.com — Custom Ecommerce & Owner Dashboard</h3>
                 <div class="project-tags">
                     <span class="tag">Ecommerce</span>
